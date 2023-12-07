@@ -18,7 +18,7 @@ public class MyBatisConfig {
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         // 서버구동시 이 부분 출력
-        log.info("datasource configuration");
+        //log.info("datasource configuration");
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         
