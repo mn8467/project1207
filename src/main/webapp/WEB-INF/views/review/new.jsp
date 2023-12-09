@@ -72,7 +72,7 @@
 
         <!-- training program Review -->
         <li class="nav-item">
-            <a class="nav-link" href="/Review/">
+            <a class="nav-link" href="/review/">
                 <i class="fa fa-wpexplorer" aria-hidden="true"></i>
                 <span>Training Program Review</span>
             </a>
@@ -409,45 +409,40 @@
                             <tr>
                                 <th>제목</th>
                                 <td>
-                                    <input style name="title" type="text" placeholder="제목을 입력하세요." class="form-control">
+                                    <input id="review-title" name="title" type="text" placeholder="제목을 입력하세요." class="form-control">
                                 </td>
                             </tr>
                             <tr>
                                 <th>수료한 과정 이름</th>
                                 <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-outline-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-expanded="false">
-                                            <span>Course</span>
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <li><a class="dropdown-item" href="#">JAVA</a></li>
-                                            <li><a class="dropdown-item" href="#">Python</a></li>
-                                            <li><a class="dropdown-item" href="#">Spring</a></li>
-                                        </ul>
-                                    </div>
+                                    <select id="review-course" class="form-select">
+                                        <option value="1">Java</option>
+                                        <option value="2">Python</option>
+                                        <option value="3">Spring</option>
+                                    </select>
                                 </td>
                             </tr>
                             <tr>
                                 <th>작성자</th>
                                 <td>
-                                    <input name="title" type="text" placeholder="" class="form-control">
+                                    <input id="review-username" name="title" type="text" placeholder="" class="form-control">
                                 </td>
                             </tr>
                             <tr>
                                 <th>내용</th>
                                 <td>
-                                    <textarea class="form-control" id="message" name="message" placeholder="내용을 입력하세요." rows="7"></textarea>
+                                    <textarea id="review-content" class="form-control" name="message" placeholder="내용을 입력하세요." rows="7"></textarea>
                                 </td>
                             </tr>
                         </table>
                         <div class="text-right">
-                            <a href="#" class="btn btn-primary btn-icon-split">
+                            <button id="review-submit-btn" class="btn btn-primary btn-icon-split">
                                 <span class="text">작성</span>
-                            </a>
+                            </button>
 
-                            <a href="#" class="btn btn-light btn-icon-split">
+                            <button id="review-cancel-btn" href="#" class="btn btn-light btn-icon-split">
                                 <span class="text">취소</span>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -512,6 +507,55 @@
 <!-- Page level custom scripts -->
 <script src="/static/js/demo/chart-area-demo.js"></script>
 <script src="/static/js/demo/chart-pie-demo.js"></script>
+
+<script>
+    $('#review-submit-btn').on('click', function () {
+        if(confirm('글 등록을 하시겠습니까?')) {
+            if($('#review-title').val() == '') {
+                alert('제목을 입력하세요.');
+                return;
+            }
+
+            if($('#review-username').val() == '') {
+                alert('사용자명을 입력하세요.');
+                return;
+            }
+
+            if($('#review-content').val() == '') {
+                alert('글 내용을 입력하세요.');
+                return;
+            }
+
+            $.ajax({
+                type:"post",
+                url:"/review/add",
+                contentType: 'application/json',
+                data: JSON.stringify({
+                    title : $('#review-title').val(),
+                    courseNo : $("#review-course option:selected").val(),
+                    userId : $('#review-username').val(),
+                    content : $('#review-content').val()
+                }),
+                dataType:"json",
+                success:function(result){
+                    if(result.result == 'ok') {
+
+                        location.href='/review'
+                    }
+                }
+            });
+
+        }
+    });
+
+    $('#review-cancel-btn').on('click', function () {
+        if(confirm('글 작성을 취소하시겠습니까?')) {
+            location.href='/review'
+        }
+    });
+
+
+</script>
 
 </body>
 </html>

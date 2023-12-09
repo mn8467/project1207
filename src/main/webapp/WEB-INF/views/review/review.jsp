@@ -72,7 +72,7 @@
 
         <!-- training program Review -->
         <li class="nav-item">
-            <a class="nav-link" href="/Review/">
+            <a class="nav-link" href="/review/">
                 <i class="fa fa-wpexplorer" aria-hidden="true"></i>
                 <span>Training Program Review</span>
             </a>
@@ -418,22 +418,22 @@
                             </tr>
                             </thead>
                             <tbody>
-                            <c:forEach items="${Reviews1}" var="Review">
+                            <c:forEach items="${reviews}" var="review">
                                 <tr>
-                                    <th scope="row">${Review.review_No}</th>
-                                    <td>${Review.user_Id}</td>
-                                    <td>${Review.title}</td>
-                                    <td>${Review.course_No}</td>
-                                    <td>${Review.drawup}</td>
-                                    <td>${Review.reference_No}</td>
-                                    <td>${Review.recommend}</td>
+                                    <th scope="row">${review.reviewNo}</th>
+                                    <td>${review.userId}</td>
+                                    <td><a href="/review/detail/${review.reviewNo}">${review.title}</a></td>
+                                    <td>${review.drawup}</td>
+                                    <td>${review.referenceNo}</td>
+                                    <td>${review.recommend}</td>
+                                    <td>${review.courseNo}</td>
                                 </tr>
                             </c:forEach>
                             </tbody>
                         </table>
                         <button style= "float : right"
                                 type="button"
-                                onclick="location.href='/Review/reviewWriteForm'"
+                                onclick="location.href='/review/new'"
                                 class="btn btn-primary">글작성</button>
                     </div>
                 </div>

@@ -5,14 +5,57 @@
 <mapper namespace="com.example.demo12.mapper.ReviewMapper">
     <select id="getReview" resultType="com.example.demo12.model.Review">
         SELECT
-            review_No,
-            user_Id,
-            title,
-            course_No,
-            drawup,
-            reference_No,
-            recommend
+           review_no,
+           user_id,
+           title,
+           drawup,
+           reference_no,
+           recommend,
+           course_no
         FROM REVIEWS
-        ORDER BY review_No
+        ORDER BY review_no
     </select>
+
+
+    <select id="getReviewByReviewNo" parameterType="com.example.demo12.model.Review" resultType="com.example.demo12.model.Review">
+        SELECT
+            review_no,
+            user_id,
+            title,
+            drawup,
+            reference_no,
+            recommend,
+            course_no,
+            content
+        FROM REVIEWS
+        where review_no = #{reviewNo}
+    </select>
+
+    <insert id="insertReview" parameterType="com.example.demo12.model.Review">
+        insert into REVIEWS(
+            user_id,
+            title,
+            course_no,
+            content
+        ) values (
+            #{userId},
+            #{title},
+            #{courseNo},
+            #{content}
+        )
+
+    </insert>
+
+    <update id="updateReviewByReviewId" parameterType="com.example.demo12.model.Review">
+        update REVIEWS
+        set title = #{title},
+            course_no = #{courseNo},
+            content = #{content}
+        where review_no = #{reviewNo}
+    </update>
+
+    <delete id="deleteReviewByReviewId" parameterType="com.example.demo12.model.Review">
+        delete from REVIEWS
+        where review_no = #{reviewNo}
+    </delete>
 </mapper>

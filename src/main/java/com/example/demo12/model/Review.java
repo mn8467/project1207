@@ -1,16 +1,18 @@
 package com.example.demo12.model;
 
 import lombok.Data;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
 import java.util.Date;
 
 @Data
 public class Review {
-    private String user_Id;
+    private String userId;
     private String title;
-    private int course_No;
-    private int review_No;
+    private int courseNo;
+    private int reviewNo;
     private Date drawup;
-    private int reference_No;
+    private int referenceNo;
     private int recommend;
+    private String content;
 }

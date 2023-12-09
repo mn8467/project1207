@@ -18,7 +18,7 @@ public class MyBatisConfig {
     @Bean
     public SqlSessionFactory sqlSessionFactory(DataSource dataSource) throws Exception {
         // 서버구동시 이 부분 출력
-        //log.info("datasource configuration");
+        log.info("datasource configuration");
         SqlSessionFactoryBean sqlSessionFactoryBean = new SqlSessionFactoryBean();
         sqlSessionFactoryBean.setDataSource(dataSource);
         
@@ -26,6 +26,8 @@ public class MyBatisConfig {
         // xml mappers 위치 설정  ex) resources폴더에 /mappers/memberMapper.xml
         Resource[] arrResource = new PathMatchingResourcePatternResolver().getResources("classpath:/mappers/*Mapper.xml");
         sqlSessionFactoryBean.setMapperLocations(arrResource);
+        sqlSessionFactoryBean.getObject().getConfiguration().setMapUnderscoreToCamelCase(true);
+
         return sqlSessionFactoryBean.getObject();
     }
 }

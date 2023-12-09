@@ -113,7 +113,7 @@
 
         <!-- training program Review -->
         <li class="nav-item">
-            <a class="nav-link" href="/Review/">
+            <a class="nav-link" href="/review/">
                 <i class="fa fa-wpexplorer" aria-hidden="true"></i>
                 <span>Training Program Review</span>
             </a>
