@@ -62,11 +62,12 @@
 			</a>
 		</li>
 
-		<!-- Comunity -->
+		<!-- Community -->
 		<li class="nav-item">
-			<a class="nav-link" href="/comunity/list">
+			<a class="nav-link" href="/com
+			munity/list">
 				<i class="fa fa-comments-o" aria-hidden="true"></i>
-				<span>Comunity</span>
+				<span>Community</span>
 			</a>
 		</li>
 
@@ -431,7 +432,7 @@
 							</table>
 							<button style= "float : right"
 									type="button"
-									onclick="location.href='/comunity/boardWriteForm'"
+									onclick="location.href='/community/boardWriteForm'"
 									class="btn btn-primary">글작성</button>
 
 

@@ -62,11 +62,11 @@
             </a>
         </li>
 
-        <!-- Comunity -->
+        <!-- community -->
         <li class="nav-item">
-            <a class="nav-link" href="/comunity/list">
+            <a class="nav-link" href="/community/list">
                 <i class="fa fa-comments-o" aria-hidden="true"></i>
-                <span>Comunity</span>
+                <span>community</span>
             </a>
         </li>
 

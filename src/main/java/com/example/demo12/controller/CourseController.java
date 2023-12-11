@@ -20,7 +20,7 @@ public class CourseController {
         List<Course> course = courseMapper.getCourse();
 
         model.addAttribute("course1", course);
-        return "Course";
+        return "Course";//Course.jsp
     }
 
 

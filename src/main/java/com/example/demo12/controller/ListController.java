@@ -14,12 +14,12 @@ public class ListController {
     @Autowired
     private ListMapper listMapper;
 
-    @RequestMapping("/comunity/list")
+    @RequestMapping("/community/list")
     public String list(Model model) {
         List<Post> posts = listMapper.getPosts();
 
         model.addAttribute("posts", posts);
-        return "list";
+        return "list";//list.jsp
     }
 
 }

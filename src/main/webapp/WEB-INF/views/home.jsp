@@ -96,6 +96,7 @@
         </div>
 
         <!-- Profile -->
+
         <li class="nav-item">
             <a class="nav-link" href="#">
                 <i class="fa fa-id-card-o" aria-hidden="true"></i>
@@ -103,11 +104,11 @@
             </a>
         </li>
 
-        <!-- Comunity -->
+        <!-- Community -->
         <li class="nav-item">
-            <a class="nav-link" href="/comunity/list">
+            <a class="nav-link" href="/community/list">
                 <i class="fa fa-comments-o" aria-hidden="true"></i>
-                <span>Comunity</span>
+                <span>Community</span>
             </a>
         </li>
 
